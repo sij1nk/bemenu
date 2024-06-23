@@ -204,6 +204,7 @@ static void toggle_item_selection(struct bm_menu *menu){
 
 enum bm_vim_code bm_vim_key_press(struct bm_menu *menu, enum bm_key key, uint32_t unicode, uint32_t item_count, uint32_t items_displayed){
     if(key == BM_KEY_ESCAPE && unicode == 99) return BM_VIM_EXIT;
+    if(key == BM_KEY_RETURN || key == BM_KEY_CONTROL_RETURN || key == BM_KEY_SHIFT_RETURN) return BM_VIM_IGNORE;
 
     if(menu->vim_mode == 'n'){
         if(key == BM_KEY_ESCAPE){
